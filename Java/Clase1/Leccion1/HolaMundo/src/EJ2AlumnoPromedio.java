@@ -1,6 +1,9 @@
 import java.util.Scanner;
+/*Ejercicio 2: Determinar si un alumno aprueba o reprueba un curso, 
+sabiendo que aprobará si su promedio de tres calificaciones es 
+mayor o igual a 70; reprueba caso contrario*/
 
-public class NewClass {
+public class EJ2AlumnoPromedio {
 
     public static void main(String[] args) {
 

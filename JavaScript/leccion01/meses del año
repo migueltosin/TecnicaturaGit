@@ -1,0 +1,18 @@
+// Arreglo con los meses del año
+let months = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 
+               'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+
+function getMonth(n) {
+    switch(true) {
+        case (n < 1 || n > 12):
+            throw new Error('out of range');
+        default:
+            return months[n - 1];
+    }
+}
+
+// Pruebas
+console.log(getMonth(1));   // Enero
+console.log(getMonth(6));   // Junio
+console.log(getMonth(12));  // Diciembre
+console.log(getMonth(13));  // Error: out of range
