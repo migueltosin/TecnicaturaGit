@@ -1,0 +1,481 @@
+/* ===== style.css: estilos globales ===== */
+
+/* Variables globales: tema oscuro por defecto */
+:root {
+    --bg-color: #0b0b0f;
+    --card-color: #16161d;
+    --text-color: #f2f2f5;
+    --text-soft: #b4b4c0;
+    --primary-color: #8b5cf6;
+    --primary-soft: #a78bfa;
+    --border-color: #2a2a36;
+}
+
+/* Tema claro: se activa con data-theme="light" en el body */
+[data-theme="light"] {
+    --bg-color: #f5f3ff;
+    --card-color: #ffffff;
+    --text-color: #1a1a24;
+    --text-soft: #555566;
+    --primary-color: #7c3aed;
+    --primary-soft: #6d28d9;
+    --border-color: #ddd6fe;
+}
+
+/* Reset básico */
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.7;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Para que el header fijo no tape los títulos al navegar */
+section { scroll-margin-top: 6rem; }
+
+a {
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+/* Título común de las secciones */
+.titulo-seccion {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+/* ----- Header y navegación ----- */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1rem 3rem;
+    background-color: var(--card-color);
+    border-bottom: 2px solid var(--primary-color);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.6rem;
+    color: var(--primary-soft);
+}
+
+.subtitulo {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--text-soft);
+}
+
+.navigation {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    justify-content: flex-end;
+    margin: 0;
+    padding: 0;
+}
+
+.navigation a {
+    padding-bottom: 0.2rem;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+}
+
+.navigation a:hover {
+    color: var(--primary-soft);
+    border-bottom-color: var(--primary-color);
+}
+
+/* Botón de modo claro/oscuro */
+#btn-tema {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.6rem 1rem;
+    border-radius: 2rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+#btn-tema:hover {
+    background-color: var(--primary-soft);
+    transform: scale(1.05);
+}
+
+/* ===== RESPONSIVO GLOBAL ===== */
+
+/* Celular (hasta 767px) */
+@media (max-width: 767px) {
+    header {
+        flex-direction: column;
+        padding: 1rem;
+        text-align: center;
+    }
+    .navigation {
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: center;
+    }
+}
+
+/* Tableta (768px a 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+    header { justify-content: center; }
+    .navigation {
+        gap: 1.5rem;
+        justify-content: center;
+    }
+}/* ===== sobre-mi.css: sección Sobre Mí ===== */
+
+.sobremi {
+    display: flex;
+    justify-content: center;
+    padding: 4rem 2rem 2rem;
+}
+
+.container-sobremi {
+    width: 60%;
+    text-align: center;
+    line-height: 2rem;
+    font-size: large;
+}
+
+/* Círculo con las iniciales */
+.avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 7rem;
+    height: 7rem;
+    margin: 0 auto 1.5rem;
+    border-radius: 50%;
+    object-fit: cover;
+    background: linear-gradient(135deg, var(--primary-color), #3b0764);
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: white;
+    box-shadow: 0 0 2rem rgba(139, 92, 246, 0.5);
+}
+
+.container-sobremi h2 {
+    font-size: 2.5rem;
+    margin: 0 0 1rem;
+}
+
+.container-sobremi p { color: var(--text-soft); }
+
+.container-sobremi .destacado {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: var(--primary-soft);
+}
+
+/* Lista de tecnologías con forma de etiquetas */
+.habilidades {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.7rem;
+    list-style: none;
+    padding: 0;
+    margin-top: 1.5rem;
+}
+
+.habilidades li {
+    padding: 0.3rem 1rem;
+    border: 1px solid var(--primary-color);
+    border-radius: 2rem;
+    font-size: 0.9rem;
+    background-color: var(--card-color);
+}
+
+/* Responsivo: celular */
+@media (max-width: 767px) {
+    .container-sobremi {
+        width: 100%;
+        padding: 1rem;
+        line-height: 1.8rem;
+        font-size: medium;
+    }
+    .container-sobremi h2 { font-size: 1.8rem; }
+}
+
+/* Responsivo: tableta */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .container-sobremi { width: 80%; }
+}/* ===== experiencia.css: sección Experiencia ===== */
+
+.experiencia {
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.container-experiencia {
+    width: 100%;
+    max-width: 50rem;
+    padding: 2rem;
+    line-height: 2rem;
+    font-size: large;
+    background-color: var(--card-color);
+    border-left: 5px solid var(--primary-color);
+    border-radius: 1rem;
+}
+
+.container-experiencia h2 {
+    margin-top: 0;
+    color: var(--primary-soft);
+}
+
+.container-experiencia h3 { margin-bottom: 0; }
+
+.container-experiencia h4 {
+    margin-top: 0.3rem;
+    color: var(--text-soft);
+    font-weight: normal;
+}
+
+.container-experiencia p { color: var(--text-soft); }
+
+/* Responsivo: celular */
+@media (max-width: 767px) {
+    .experiencia { padding: 1rem; }
+    .container-experiencia {
+        padding: 1.2rem;
+        line-height: 1.8rem;
+        font-size: medium;
+    }
+}/* ===== estudios.css: sección Mis Estudios ===== */
+
+.estudios {
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.container-estudios {
+    width: 100%;
+    max-width: 50rem;
+    padding: 2rem;
+    line-height: 2rem;
+    font-size: large;
+    background-color: var(--card-color);
+    border-left: 5px solid var(--primary-color);
+    border-radius: 1rem;
+}
+
+.container-estudios h2 {
+    margin-top: 0;
+    color: var(--primary-soft);
+}
+
+.container-estudios h3 { margin-bottom: 0; }
+
+.container-estudios h4 {
+    margin-top: 0.3rem;
+    color: var(--text-soft);
+    font-weight: normal;
+}
+
+.container-estudios p { color: var(--text-soft); }
+
+/* Responsivo: celular */
+@media (max-width: 767px) {
+    .estudios { padding: 1rem; }
+    .container-estudios {
+        padding: 1.2rem;
+        line-height: 1.8rem;
+        font-size: medium;
+    }
+}/* ===== proyectos.css: sección Proyectos con Flexbox ===== */
+
+.proyectos { padding: 3rem 2rem; }
+
+/* Contenedor flex: acomoda las tarjetas en fila y las baja de línea si no entran */
+.contenedor-proyectos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    max-width: 75rem;
+    margin: 0 auto;
+}
+
+/* Cada tarjeta ocupa un tercio del contenedor menos el espacio entre tarjetas */
+.tarjeta {
+    display: flex;
+    flex-direction: column;
+    width: calc(33% - 40px);
+    min-width: 16rem;
+    padding: 1.5rem;
+    background-color: var(--card-color);
+    border: 1px solid var(--border-color);
+    border-radius: 1rem;
+    transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+}
+
+.tarjeta:hover {
+    transform: translateY(-0.5rem);
+    border-color: var(--primary-color);
+    box-shadow: 0 0 1.5rem rgba(139, 92, 246, 0.3);
+}
+
+.tarjeta h3 { margin-top: 0; }
+
+.tarjeta p {
+    flex-grow: 1; /* empuja las etiquetas y el link hacia abajo */
+    color: var(--text-soft);
+}
+
+/* Etiquetas de tecnologías */
+.tecnologias {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.tecnologias span {
+    padding: 0.1rem 0.8rem;
+    border-radius: 1rem;
+    background-color: var(--primary-color);
+    color: white;
+    font-size: 0.8rem;
+}
+
+.link-github {
+    color: var(--primary-soft);
+    font-weight: bold;
+}
+
+.link-github:hover { text-decoration: underline; }
+
+/* Responsivo: tableta (2 tarjetas por fila) */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .tarjeta { width: calc(50% - 40px); }
+}
+
+/* Responsivo: celular (1 tarjeta por fila) */
+@media (max-width: 767px) {
+    .proyectos { padding: 2rem 1rem; }
+    .tarjeta { width: 100%; }
+}/* ===== contacto.css: sección Contacto con Google Forms ===== */
+
+.contacto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3rem 2rem;
+}
+
+.contacto-texto {
+    max-width: 40rem;
+    text-align: center;
+    color: var(--text-soft);
+}
+
+.contacto-texto a { color: var(--primary-soft); }
+
+/* Caja que contiene el iframe del formulario */
+.contenedor-formulario {
+    width: 100%;
+    max-width: 40rem;
+    padding: 1rem;
+    background-color: var(--card-color);
+    border: 1px solid var(--primary-color);
+    border-radius: 1rem;
+}
+
+.contenedor-formulario iframe {
+    width: 100%;
+    height: 37rem;
+    border: none;
+    border-radius: 0.5rem;
+}
+
+/* Responsivo: celular */
+@media (max-width: 767px) {
+    .contacto { padding: 2rem 1rem; }
+    .contenedor-formulario { padding: 0.5rem; }
+    .contenedor-formulario iframe { height: 42rem; }
+}/* ===== footer.css: pie de página ===== */
+
+footer {
+    margin-top: 3rem;
+    padding: 20px 0;
+    text-align: center;
+    background-color: var(--card-color);
+    border-top: 2px solid var(--primary-color);
+}
+
+.footer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-info {
+    margin-bottom: 10px;
+    color: var(--text-soft);
+}
+
+.footer-social {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+/* Botones circulares de las redes */
+.footer-social a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.footer-social a:hover {
+    background-color: var(--primary-soft);
+    transform: translateY(-3px);
+}
+
+/* Íconos SVG */
+.footer-social svg {
+    width: 24px;
+    height: 24px;
+    fill: #fff;
+}
+
+/* Responsivo: tableta y menores */
+@media (max-width: 768px) {
+    .footer-social { flex-wrap: wrap; gap: 10px; }
+    .footer-social a { width: 35px; height: 35px; }
+    .footer-social svg { width: 20px; height: 20px; }
+}
+
+/* Responsivo: celular */
+@media (max-width: 480px) {
+    footer { padding: 15px 0; }
+    .footer-info { margin-bottom: 5px; font-size: 14px; }
+    .footer-social { gap: 8px; }
+    .footer-social a { width: 30px; height: 30px; }
+    .footer-social svg { width: 18px; height: 18px; }
+}
